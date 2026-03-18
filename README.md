@@ -24,11 +24,19 @@ https://github.com/QunBB/DeepLearning/tree/main/llms/train/deepseek-train
 
 
 
-3B: 82
-3B_GRPO:90
-SFT:88
+
 
 0.5B:
-origin: 0.47
-sft(2epoch): 0.15
-GRPO(800steps):0.5
+origin: 47
+sft(2epoch): 15
+GRPO(800steps):50
+
+1.5B
+origin:64
+SFT:58
+
+
+3B: 
+origin:82
+GRPO:90
+SFT:88
