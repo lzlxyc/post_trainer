@@ -20,14 +20,17 @@ def test_vllm(config):
     if not config.use_lora_path:
         config.lora_path = None
 
+    max_seq_len = 4096*4
     if config.lora_path:
-        print("加载lora模型：", config.lora_path)
+        print("加载lora模型：", config.lora_path, max_model_len)
         llm = LLM(
             model=model_path, 
-            gpu_memory_utilization=0.5,
+            gpu_memory_utilization=0.85,
             enable_lora=True,           # 必须开启！
             max_loras=1,                # 最多同时加载 4 个
-            max_lora_rank=64            # LoRA 秩上限    
+            max_lora_rank=64,            # LoRA 秩上限
+            max_model_len=max_seq_len,
+            
         )
         lora_model = LoRARequest(
             lora_name="lora_model",
@@ -37,7 +40,8 @@ def test_vllm(config):
     else:
         llm = LLM(
             model=model_path, 
-            gpu_memory_utilization=0.5   
+            gpu_memory_utilization=0.85,
+            max_model_len=max_seq_len,
         )
 
     tokenizer = AutoTokenizer.from_pretrained(model_path)

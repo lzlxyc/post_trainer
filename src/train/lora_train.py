@@ -74,6 +74,7 @@ def train(args):
         use_vllm=args.use_vllm,
         vllm_mode="colocate",
         vllm_gpu_memory_utilization=args.vllm_gpu_ratio,
+        vllm_max_model_length=2048, #1024+512+32
         report_to="none",
         save_total_limit=5,  
         reward_weights=[0.2, 0.8],

@@ -34,9 +34,13 @@ GRPO(800steps):50
 1.5B
 origin:64
 SFT:58
+GRPO:0.74
 
 
 3B: 
 origin:82
 GRPO:90
 SFT:88
+
+4B:
+origin:0.59
