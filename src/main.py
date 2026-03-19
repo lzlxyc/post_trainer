@@ -107,7 +107,7 @@ def main():
     parser.add_argument(
         "--per_device_train_batch_size",
         type=int,
-        default=2,
+        default=2*4,
         required=False,
         help="The batch size per GPU/XPU/TPU/MPS/NPU core/CPU for training.",
     )

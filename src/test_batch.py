@@ -22,7 +22,7 @@ def test_vllm(config):
     if not config.use_lora_path:
         config.lora_path = None
 
-    max_seq_len = 4096*4
+    max_seq_len = 4096
     if config.lora_path:
         print("加载lora模型：", config.lora_path)
         llm = LLM(
@@ -31,11 +31,12 @@ def test_vllm(config):
             enable_lora=True,           # 必须开启！
             max_loras=1,                # 最多同时加载 4 个
             max_lora_rank=64,            # LoRA 秩上限    
+            max_model_len=max_seq_len
         )
         lora_model = LoRARequest(
             lora_name="lora_model",
             lora_int_id=1,
-            max_model_len=max_seq_len
+            lora_path=config.lora_path,
         )
     else:
         llm = LLM(

@@ -51,14 +51,14 @@ def get_gsm8k_dataset(split="train", sft=False, cache_dir=None, first_half=False
             'answer': extract_answer(x['answer'])
         })
     else:
-        data = data.map(lambda x: {
+        data = data.filter(lambda x: len(x['question']) <= 512).map(lambda x: {
             'messages': [
                 {'role': 'system', 'content': SYSTEM_PROMPT},
                 {'role': 'user', 'content': x['question']},
                 {'role': 'assistant', 'content': extract_cot(x['answer'])},
             ]
         })
-    #print(data)
+    print(f"-------------训练数据量：",len(data), '---------------')
     return data
 
 # Make sure to replace 'path/to/your/local/' with the actual path to your local dataset files.

@@ -44,3 +44,4 @@ SFT:88
 
 4B:
 origin:0.59
+GRPO:0.98

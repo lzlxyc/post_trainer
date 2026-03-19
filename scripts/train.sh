@@ -1,8 +1,8 @@
 python ../src/main.py \
-    --task=grpo_lora_train --bf16 --use_vllm \
-    --model_name_or_path /root/autodl-tmp/model_hub/Qwen2.5-3B-Instruct \
-    --checkpoint_dir ../outputs/Qwen2.5-3B-GRPO_lora \
-    --vllm_gpu_ratio 0.3 \
+    --task=sft_train --bf16 --use_vllm \
+    --model_name_or_path /root/autodl-tmp/model_hub/Qwen3-4B-Instruct-2507 \
+    --checkpoint_dir ../outputs/Qwen3-4B-SFT_lora \
+    --vllm_gpu_ratio 0.35 \
     --save_strategy steps \
     --epochs 1 \
     --learning_rate 5e-6 \

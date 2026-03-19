@@ -14,8 +14,8 @@ def correctness_reward_func(prompts, completions, answer, **kwargs) -> list[floa
     extracted_responses = [extract_number_from_boxed_string(r) for r in responses]
 
     q = prompts[0][-1]['content']
-    print('-' * 20, f"Question:\n{q}", f"\nResponse:\n{responses[0]}",f"\nAnswer:\n{answer[0].replace(" ", "").replace(',', '')}", 
-          f"\nExtracted:\n{extracted_responses[0]}")
+    # print('-' * 20, f"Question:\n{q}", f"\nResponse:\n{responses[0]}",f"\nAnswer:\n{answer[0].replace(" ", "").replace(',', '')}", 
+    #       f"\nExtracted:\n{extracted_responses[0]}")
 
     return [1.0 if r == a.replace(" ", "").replace(',', '') else 0.0 for r, a in zip(extracted_responses, answer)]
 
